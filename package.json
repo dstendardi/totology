@@ -6,7 +6,7 @@
   "scripts": {
     "test": "node_modules/cucumber/bin/cucumber.js -f pretty",
     "start": "node server.js",
-    "bower-install": "node_modules/bower/bin/bower --config.interactive=false install"
+    "bower-install": "node_modules/bower/bin/bower --allow-root --config.interactive=false install"
   },
   "author": "",
   "license": "ISC",
