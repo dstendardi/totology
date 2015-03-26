@@ -10,18 +10,14 @@ Manage your folksonomy like a boss !
 Only vagrant is required.
 
 ```bash
+
+# provision vagrant
 vagrant up && vagrant ssh
-```
 
-Go into the share directory 
-
-```bash
+# go into the share directory
 cd /vagrant
-```
 
-Run docker compose 
-
-```bash
+# provision docker
 docker-compose up
 ```
 
