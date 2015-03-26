@@ -9,7 +9,7 @@ dependencies:
   override:
     - bin/circle-docker-provision.sh elasticsearch:latest iojs:latest selenium/standalone-chrome:2.45.0
     - ~/.docker/docker-compose run web npm install
-    - ~/.docker/docker-compose run web npm bower-install
+    - ~/.docker/docker-compose run web npm run-script bower-install
 
 test:
   override:
