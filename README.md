@@ -1,5 +1,8 @@
 # Totology 
 
+[![Circle CI](https://circleci.com/gh/dstendardi/totology.svg?style=shield)](https://circleci.com/gh/dstendardi/totology)
+![David](https://david-dm.org/dstendardi/totology.svg)
+
 Manage your folksonomy like a boss !
 
 ## Setup
