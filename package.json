@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cucumber.js -f pretty",
     "start": "node server.js"
   },
   "author": "",
@@ -21,6 +21,7 @@
     "gulp": "^3.8.11",
     "gulp-develop-server": "^0.4.1",
     "gulp-inject": "^1.2.0",
-    "gulp-nodemon": "^2.0.2"
+    "gulp-nodemon": "^2.0.2",
+    "webdriverio": "^2.4.5"
   }
 }

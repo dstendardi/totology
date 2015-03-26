@@ -7,8 +7,16 @@ web:
     - .:/app
   links:
     - elasticsearch
+    - selenium
 
 elasticsearch:
   image: elasticsearch
   ports:
     - "9200:9200"
+
+selenium:
+  image: selenium/standalone-chrome:2.45.0
+  privileged: true
+  ports:
+    - "4444:4444"
+    - "5900:5900"

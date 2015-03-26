@@ -10,4 +10,4 @@ dependencies:
 
 test:
   override:
-    - ~/.docker/docker-compose run -d web
+    - ~/.docker/docker-compose run web npm test

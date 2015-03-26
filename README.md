@@ -21,3 +21,16 @@ Run docker compose
 ```bash
 docker-compose up
 ```
+
+## Testing
+
+launch all tests
+
+```
+docker-compose run web npm test
+```
+
+
+
+
+
