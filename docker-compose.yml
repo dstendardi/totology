@@ -10,7 +10,7 @@ web:
     - selenium
 
 elasticsearch:
-  image: elasticsearch
+  image: elasticsearch:latest
   ports:
     - "9200:9200"
 

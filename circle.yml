@@ -7,7 +7,7 @@ dependencies:
     - "~/.docker"
     - "_node_modules"
   override:
-    - bin/circle-docker-provision.sh elasticsearch iojs selenium/standalone-chrome
+    - bin/circle-docker-provision.sh elasticsearch:latest iojs:latest selenium/standalone-chrome:2.45.0
     - ~/.docker/docker-compose run web npm install
 
 test:
