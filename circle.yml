@@ -5,6 +5,7 @@ machine:
 dependencies:
   cache_directories:
     - "~/.docker"
+    - "_node_modules"
   override:
     - bin/circle-docker-provision.sh elasticsearch iojs selenium/standalone-chrome
     - ~/.docker/docker-compose run web npm install
