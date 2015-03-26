@@ -6,7 +6,7 @@ dependencies:
   cache_directories:
     - "~/.docker"
   override:
-    - bin/circle-docker-provision.sh elasticsearch iojs
+    - bin/circle-docker-provision.sh elasticsearch iojs selenium/standalone-chrome
 
 test:
   override:
