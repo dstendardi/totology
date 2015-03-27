@@ -22,17 +22,17 @@ fi
 
 for name in $@; do
 
-  img=$cache/$name.tar.xz
+  img=$cache/$name.tar
   mkdir -p $(dirname $img)
 
   if [[ -f $img ]]; then
     echo "loading docker image <$name>"
-    gzip -dc $img | docker load
+    docker load -i $img
   else
     echo "pulling docker image <$name>"
     docker pull $name
     echo "saving docker image <$name> in <$img>"
-    docker save $name | gzip -c > $img
+    docker save -o $img $name
   fi
 done
 
