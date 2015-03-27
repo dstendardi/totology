@@ -8,6 +8,12 @@ if [ 0 -eq  $(ps -ef | grep "docker" | grep -v "grep" | wc -l) ]; then
   exit 1;
 fi
 
+if hash pxz 2>/dev/null; then
+  echo "pxz is installed"
+else
+  sudo apt-get install -y pxz 
+fi
+
 cache=~/.docker
 compose=$cache/docker-compose
 
@@ -22,17 +28,17 @@ fi
 
 for name in $@; do
 
-  img=$cache/$name.tar
+  img=$cache/$name.tar.xz
   mkdir -p $(dirname $img)
 
   if [[ -f $img ]]; then
     echo "loading docker image <$name>"
-    docker load -i $img
+    pxz -cd $img | docker load
   else
     echo "pulling docker image <$name>"
     docker pull $name
     echo "saving docker image <$name> in <$img>"
-    docker save -o $img $name
+    docker save $name | pxz > $img
   fi
 done
 
