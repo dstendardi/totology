@@ -1,6 +1,6 @@
 web:
   build: .
-  command: gulp dev
+  command: node_modules/gulp/bin/gulp.js dev
   ports:
     - "3000:3000"
   volumes:

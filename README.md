@@ -25,11 +25,25 @@ docker-compose up
 
 launch all tests
 
-```
+```bash
 docker-compose run web npm test
 ```
 
+## Monitoring
+
+You can collect metrics on the following end point metrics :
+
+```bash
+curl -XGET localhost:3000/metrics
+```
 
 
+## Stack
+
+utility libraries :
+  - [ImmutableJS](https://facebook.github.io/immutable-js/) : Immutable collections for JavaScript 
+
+monitoring:
+  - [measured](https://github.com/felixge/node-measured) : Port of Coda Hale's metrics library
 
 
