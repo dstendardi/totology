@@ -22,8 +22,5 @@ gulp.task('dev', function () {
       '.vagrant/**'
     ]
     , tasks: ['inject']
-    })
-    .on('restart', function () {
-      console.log('restarted!')
     });
 });

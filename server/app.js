@@ -4,7 +4,7 @@ var routes = require('koa-router')();
 app.use(require('./middleware/measured')());
 app.use(require('koa-bodyparser')());
 app.use(require('koa-validator')());
-app.use(require('koa-static')("./client/.build"));
+app.use(require('koa-static')('./client/.build'));
 app.use(routes.middleware());
 
 
@@ -20,4 +20,4 @@ require('require-all')({
 });
 
 
-module.exports = app
+module.exports = app;

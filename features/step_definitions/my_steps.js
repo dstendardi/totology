@@ -1,6 +1,4 @@
-
-
-var myStepDefinitionsWrapper = function () {
+module.exports = function () {
   this.World = require("../support/world.js").World;
 
   this.Given(/^I am on "\/"$/, function (arg1, callback) {
@@ -9,9 +7,9 @@ var myStepDefinitionsWrapper = function () {
       .click('*[name="btnG"]')
       .pause(1000)
       .getTitle(function(err,title) {
-        console.log(title);
+        console.log(title, arg1);
+        callback();
       })
       .end();
   });
 };
-module.exports = myStepDefinitionsWrapper;

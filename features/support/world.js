@@ -1,6 +1,6 @@
-
 var webdriverio = require('webdriverio');
-var WorldConstructor = function WorldConstructor(callback) {
+
+exports.World = function WorldConstructor(callback) {
 
   var browser = webdriverio
     .remote({
@@ -18,4 +18,3 @@ var WorldConstructor = function WorldConstructor(callback) {
 
   callback(world);
 };
-exports.World = WorldConstructor;
