@@ -1,32 +1,20 @@
-var koa = require('koa');
-var serve = require('koa-static');
-var router = require('koa-router');
-var validator = require('koa-validator');
-var bodyParser = require('koa-bodyparser');
-var measured = require('./middleware/measured');
-var validate = require('./middleware/validate');
-var Immutable = require('immutable');
-var app = koa();
-var routes = router();
+var app = require('koa')();
 
-routes.post('/', validate(function *() {
-    this.checkBody('name').len(2, 2);
-  }),  function *() {
-    this.metrics.app.meter('hello').mark();
-    this.body = {"hello": this.request.body.name};
-});
-
-routes.get('/metrics', function *() {
-  this.body = Immutable
-    .Map()
-    .merge(this.metrics.http.toJSON())
-    .merge(this.metrics.app.toJSON());
-});
-
-app.use(validator());
-app.use(measured());
-app.use(bodyParser());
+var routes = require('koa-router')();
+app.use(require('./middleware/measured')());
+app.use(require('koa-bodyparser')());
+app.use(require('koa-validator')());
+app.use(require('koa-static')("./client/.build"));
 app.use(routes.middleware());
-app.use(serve("./client/.build"));
+
+
+require('require-all')({
+  dirname: __dirname + '/controller'
+  , filter: /(.+Controller)\.js$/
+  , resolve: function (controller) {
+    controller.call(this, {routing: routes, validate: require('./middleware/validate')});
+  }
+});
+
 
 module.exports = app
