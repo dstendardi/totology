@@ -12,7 +12,10 @@ require('require-all')({
   dirname: __dirname + '/controller'
   , filter: /(.+Controller)\.js$/
   , resolve: function (controller) {
-    controller.call(this, {routing: routes, validate: require('./middleware/validate')});
+    controller({
+      routing: routes,
+      validate: require('./middleware/validate')
+    });
   }
 });
 
