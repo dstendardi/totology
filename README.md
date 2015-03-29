@@ -2,6 +2,7 @@
 
 [![Circle CI](https://circleci.com/gh/dstendardi/totology.svg?style=shield)](https://circleci.com/gh/dstendardi/totology)
 ![David](https://david-dm.org/dstendardi/totology.svg)
+[![Codacy Badge](https://www.codacy.com/project/badge/483f464580c444f0a281ca669751f4e9)](https://www.codacy.com/app/dstendardi_2785/totology)
 
 Manage your folksonomy like a boss !
 
