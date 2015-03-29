@@ -6,7 +6,9 @@ module.exports = function ($) {
     })
     , function *() {
       this.metrics.app.meter('hello').mark();
-      this.body = {"hello": this.request.body.name};
+      this.body = {
+        'hello': this.request.body.name
+      };
     });
 
 };
