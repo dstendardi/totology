@@ -1,5 +1,7 @@
 FROM iojs:latest
 
+RUN useradd -ms /bin/bash app
+USER app
 WORKDIR /app
 ADD . /app
 
