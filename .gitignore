@@ -11,6 +11,7 @@ debug.log
 /atom-shell/
 .idea
 .vagrant
+bower_components/
 
 # app specific
 client/.build

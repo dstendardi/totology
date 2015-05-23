@@ -19,5 +19,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell", inline: $script
   config.vm.provider "virtualbox" do |v|
     v.memory = 2048
+    v.customize [ "guestproperty", "set", :id, "--timesync-threshold", 10000 ]
   end
 end
