@@ -1,4 +1,6 @@
+import el from './dependency'
+
 React.render(
-  <h1>Hello, world!</h1>,
+  el,
   document.body
 );
