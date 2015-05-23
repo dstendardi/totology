@@ -2,6 +2,7 @@
 var gulp = require('gulp')
   , nodemon = require('gulp-nodemon')
   , inject = require('gulp-inject')
+  , babel = require('gulp-babel')
   , merge = require('merge2')
   , sass = require('gulp-sass');
 
@@ -17,10 +18,16 @@ var css = function cssPipepline() {
 };
 
 var js = function jsPipeline() {
-   
-  var src = './client/js/**/*.js';
 
-  return gulp.src(src);
+  var vendors = gulp.src([
+   'bower_components/react/react.js'
+  ]).pipe(gulp.dest('./client/.build/vendors/'));
+   
+  var app = gulp.src('./client/js/**/*.js')
+  .pipe(babel())
+  .pipe(gulp.dest('./client/.build/app/'));
+
+  return merge(vendors, app);
 };
 
 gulp.task('build:client', function () {
@@ -31,7 +38,7 @@ gulp.task('build:client', function () {
   var sources = merge(css(), js());
 
   return gulp.src(target)
-    .pipe(inject(sources))
+    .pipe(inject(sources, {read: false, ignorePath: '/client/.build'}))
     .pipe(gulp.dest(destination));
 });
 
