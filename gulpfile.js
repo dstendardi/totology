@@ -17,7 +17,7 @@ var config = {
     js: './client/js'
   },
   apps: [
-    './client/js/main.js'
+    './client/js/Main.js'
   ],
   vendors: [
     'bower_components/react/react.js'

@@ -1,4 +1,4 @@
-import el from './dependency'
+import el from './LoginForm'
 
 React.render(
   el,
