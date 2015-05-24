@@ -3,7 +3,6 @@
 var gulp = require('gulp')
   , nodemon = require('gulp-nodemon')
   , inject = require('gulp-inject')
-  , babel = require('gulp-babel')
   , merge = require('merge2')
   , sass = require('gulp-sass')
   , browserify = require('browserify')
