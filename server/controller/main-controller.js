@@ -4,7 +4,6 @@ module.exports = [{
   path: '/',
   methods: ['post'],
   validate: function *() {
-    console.log(this.request.body);
     this.checkBody('name').len(2, 2);
   },
   handler: function *() {
