@@ -1,12 +1,14 @@
-module.exports = function ($) {
+var Immutable = require('immutable');
 
-  var Immutable = require('immutable');
+module.exports = [{
 
-  $.routing.get('metrics', '/metrics'
-    , function *() {
-      this.body = Immutable
-        .Map()
-        .merge(this.metrics.http.toJSON())
-        .merge(this.metrics.app.toJSON());
-    });
-};
+  name: 'metrics',
+  path: '/metrics',
+  methods: ['get'],
+  handler: function *() {
+    this.body = Immutable
+      .Map()
+      .merge(this.metrics.http.toJSON())
+      .merge(this.metrics.app.toJSON());
+  }
+}];
