@@ -1,3 +1,4 @@
+
 // Gulpfile.js 
 var gulp = require('gulp')
   , nodemon = require('gulp-nodemon')
@@ -37,7 +38,8 @@ var js = function jsPipeline() {
 
   var app = browserify({
     entries: config.apps,
-    paths: [config.directories.js]
+    paths: [config.directories.js],
+    insertGlobals: true
   })
   .transform(babelify)
   .bundle()
@@ -47,8 +49,9 @@ var js = function jsPipeline() {
   return merge(vendors, app);
 };
 
-gulp.task('build:client', function () {
 
+
+gulp.task('build:client', function () {
   var target = './client/index.html';
   var sources = merge(css(), js());
 
@@ -58,14 +61,16 @@ gulp.task('build:client', function () {
 });
 
 gulp.task('dev', ['build:client'], function () {
+
+  gulp.watch([
+    "./client/**/*",
+    "!./client/.build"
+  ], ['build:client']);
+
   nodemon({
     script: './server/main.js',
-    ext: 'scss html js',
-    ignore: [
-      'node_modules/**',
-      'bower_components/**',
-      '.vagrant/**'
-    ]
-    , tasks: ['build:client']
+    watch: ['./server'],
+    ext: 'js'
   });
 });
+
