@@ -1,8 +1,11 @@
 var Immutable = require('immutable');
 
-module.exports = [{
-
-  name: 'metrics',
+/**
+ * Metrics
+ *
+ * @type {{path: string, methods: string[], handler: Function}}
+ */
+module.exports['metrics'] = {
   path: '/metrics',
   methods: ['get'],
   handler: function *() {
@@ -11,4 +14,4 @@ module.exports = [{
       .merge(this.metrics.http.toJSON())
       .merge(this.metrics.app.toJSON());
   }
-}];
+};

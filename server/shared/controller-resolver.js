@@ -1,24 +1,26 @@
-var assert   = require('assert');
+var assert = require('assert');
 var validate = require('./middleware/validate');
+var Immutable = require('immutable');
 
 module.exports = function(router) {
 
   return function (routes) {
 
-    routes.forEach(function(route) {
+    Immutable.Map(routes)
+      .forEach(function(options, name) {
 
-      assert(route.name, "name is required");
-      assert(route.path, "path is required");
-      assert(route.methods, "methods is required");
-      assert(route.handler, "handler is required");
+      assert(name, "name is required");
+      assert(options.path, "path is required");
+      assert(options.methods, "methods is required");
+      assert(options.handler, "handler is required");
 
-      var args = [route.name, route.path, route.methods];
+      var args = [name, options.path, options.methods];
 
-      if (route.validate) {
-        args.push(validate(route.validate));
+      if (options.validate) {
+        args.push(validate(options.validate));
       }
 
-      args.push(route.handler);
+      args.push(options.handler);
 
       router.register.apply(router, args);
     });

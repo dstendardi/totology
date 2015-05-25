@@ -9,7 +9,7 @@ app.use(router.middleware());
 
 require('require-all')({
   dirname: __dirname + '/controller'
-  , filter: /(.+Controller)\.js$/
+  , filter: /(.+\-controller)\.js$/
   , resolve: require('./shared/controller-resolver')(router)
 });
 

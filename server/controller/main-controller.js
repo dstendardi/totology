@@ -1,6 +1,9 @@
-module.exports = [{
-
-  name: 'main',
+/**
+ * Main route
+ *
+ * @type {{path: string, methods: string[], validate: Function, handler: Function}}
+ */
+module.exports['main'] = {
   path: '/',
   methods: ['post'],
   validate: function *() {
@@ -12,4 +15,4 @@ module.exports = [{
       'hello': this.request.body.name
     };
   }
-}];
+};
